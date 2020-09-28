@@ -20,10 +20,18 @@ wss.on("connection", (socket, request) => {
     });
 
     socket.on("close", (code, reason) => {
-        console.log(reason);
+        console.log("Cliend is connected", code);
+    });
+
+    socket.on("error", (err) => {
+        console.log(err);
     });
 });
 
 app.get("/", (req, res) => {
+    if (client) {
+        client.send("I need data");
+        return res.send("It is ok");
+    }
     res.send("Hello world");
 });
