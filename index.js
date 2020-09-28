@@ -20,7 +20,7 @@ wss.on("connection", (socket, request) => {
     });
 
     socket.on("close", (code, reason) => {
-        console.log("Cliend is connected", code);
+        console.log("Cliend is disconnected", code);
     });
 
     socket.on("error", (err) => {
@@ -28,10 +28,21 @@ wss.on("connection", (socket, request) => {
     });
 });
 
-app.get("/", (req, res) => {
-    if (client) {
-        client.send("I need data");
-        return res.send("It is ok");
+function Request(req) {
+    client.send(req);
+    return new Promise((resolve, reject) => {
+        client.on("message", (data) => {
+            resolve(data);
+        });
+        client.on("error", (err) => {
+            reject("Unable to retirve data");
+        });
+    });
+}
+
+app.get("/", async (req, res) => {
+    if (!client) {
+        return res.status(500).send("Unable to retrive data");
     }
-    res.send("Hello world");
+    res.send(await Request("GET /"));
 });
