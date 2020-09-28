@@ -25,6 +25,5 @@ wss.on("connection", (socket, request) => {
 });
 
 app.get("/", (req, res) => {
-    res.send("Fuck");
-    client.send("request need data");
+    res.send("Hello world");
 });
