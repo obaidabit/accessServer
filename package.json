@@ -1,18 +1,26 @@
 {
-    "name": "webscoket",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "dependencies": {
-        "express": "^4.17.1",
-        "ws": "^7.3.1"
-    },
-    "devDependencies": {},
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node index"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC"
+  "name": "webscoket",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ws": "^7.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obedabit/accessServer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/obedabit/accessServer/issues"
+  },
+  "homepage": "https://github.com/obedabit/accessServer#readme",
+  "description": ""
 }

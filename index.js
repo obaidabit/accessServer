@@ -73,3 +73,41 @@ app.get("/buy", async (req, res) => {
         return res.status(500).send("Error in client side");
     }
 });
+
+app.get("/balance", async (req, res) => {
+    try {
+        const response = await Request({
+            path: "/balance",
+            date:req.query.start
+        });
+
+        res.json(JSON.parse(response));
+    } catch (error) {
+        return res.status(500).send("Error in client side");
+    }
+});
+
+app.get("/saler",async (req,res)=>{
+	try{
+		const response = await Request({
+			path:'/saler'
+		});
+		
+		res.json(JSON.parse(response));
+	}catch(error){
+		return res.status(500).send("Error in client side");
+	}
+});
+
+app.get("/customer",async (req,res)=>{
+	try{
+		const response = await Request({
+			path:'/customer'
+		});
+		
+		res.json(JSON.parse(response));
+	}catch(error){
+		return res.status(500).send("Error in client side");
+	}
+});
+
